@@ -143,6 +143,13 @@
     <ClCompile Include="02 template.cpp" />
     <ClCompile Include="03 template.cpp" />
     <ClCompile Include="04 template.cpp" />
+    <ClCompile Include="05 template.cpp" />
+    <ClCompile Include="06 template.cpp" />
+    <ClCompile Include="07 template.cpp" />
+    <ClCompile Include="08 template.cpp" />
+    <ClCompile Include="09 template.cpp" />
+    <ClCompile Include="10 template.cpp" />
+    <ClCompile Include="11 template.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
