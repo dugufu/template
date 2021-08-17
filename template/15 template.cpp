@@ -51,6 +51,42 @@ public:
 		
 	}
 
+	void ArrPush(const T &val)
+	{
+		if (this->m_array_capacity == this->m_array_size)
+		{
+			return;
+		}
+
+		this->m_array[this->m_array_size] = val;
+		this->m_array_size++;
+	}
+
+	void ArrPop()
+	{
+		if (this->m_array_size == 0)
+		{
+			return;
+		}
+
+		this->m_array_size--;
+	}
+
+	int getArrayCapacity()
+	{
+		return this->m_array_capacity;
+	}
+
+	int getArraySize()
+	{
+		return this->m_array_size;
+	}
+
+	T& operator[](int val)
+	{
+		return this->m_array[val];
+	}
+
 	~MyArrayClass()
 	{
 		if (this->m_array != NULL)
@@ -68,17 +104,97 @@ private:
 
 };
 
+class Person 
+{
+public:
+	Person() {}
+	Person(string name, int age)
+	{
+		this->m_name = name;
+		this->m_age = age;
+	}
+
+	string get_name()
+	{
+		return this->m_name;
+	}
+	int get_age()
+	{
+		return this->m_age;
+	}
+private:
+	string m_name;
+	int m_age;
+};
+
+template<typename T>
+void printArrayInfo(T& arr)
+{
+	for (int i = 0; i < arr.getArrayCapacity() - 1; i++) // -1 is to make sure it always -1 between capacity and size
+	{
+		cout << arr[i] << endl;
+	}
+}
+
+void printArrayPerson(MyArrayClass<Person>& arr)
+{
+	for (int i = 0; i < arr.getArrayCapacity() - 1; i++) // -1 is to make sure it always -1 between capacity and size
+	{
+		cout << arr[i].get_name() << endl;
+		cout << arr[i].get_age() << endl;
+
+	}
+}
 void test01()
 {
 	MyArrayClass<int>int_1(5);
-	MyArrayClass<int>int_2(int_1);
-	MyArrayClass<int>int_3(100); 
-
-	int_3 = int_1;
 	
+	for (int i =1; i < int_1.getArrayCapacity();i++)
+	{
+		int_1.ArrPush(i);
+	}
+	int_1.ArrPush(14);
+	int_1.ArrPop();
+	printArrayInfo(int_1);
+
+	cout << "Capacity :" << int_1.getArrayCapacity() << endl;
+	cout << "Size :" << int_1.getArraySize() << endl;
+
+	
+}
+
+void test02()
+{
+	MyArrayClass<Person>person1(5);
+
+	Person p1("ccr1", 2);
+	Person p2("ccr2", 4);
+	Person p3("ccr3", 6);
+	Person p4("ccr4", 8);
+
+	person1.ArrPush(p1);
+	person1.ArrPush(p2);
+	person1.ArrPush(p3);
+	person1.ArrPush(p4);
+
+	printArrayPerson(person1);
+}
+
+void test03()
+{
+	MyArrayClass<char>emp(5);
+	char emp_arr[] = { "abcde" };
+	for (int i = 0; i < emp.getArrayCapacity()-1 ; i++)
+	{
+		emp.ArrPush(emp_arr[i]);
+	}
+
+	printArrayInfo(emp);
 }
 
 int main()
 {
-	test01();
+	//test01();
+	//test02();
+	test03();
 }
