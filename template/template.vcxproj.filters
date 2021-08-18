@@ -60,6 +60,9 @@
     <ClCompile Include="15 template.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="16 template.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="12 template.hpp">

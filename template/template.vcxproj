@@ -154,6 +154,7 @@
     <ClCompile Include="13 template.cpp" />
     <ClCompile Include="14 template.cpp" />
     <ClCompile Include="15 template.cpp" />
+    <ClCompile Include="16 template.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="12 template.hpp" />
